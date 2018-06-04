@@ -3,48 +3,54 @@
 namespace Calculator {
     class Program {
         static void Main (string[] args) {
-            double total = 0;
+            double memory = 0;
             string input_2 = "";
             Operations oper = new Operations ();
-            Console.WriteLine ("Calculator\n\tOptions\nAddition\tA\nSubstracion\tB\nMultiplication\tC\nDivision\tD\nSquare root\tE\nTotal\t\tF\n");
+            Console.WriteLine ("Calculator\n\tOptions\nAddition\tA\nSubstracion\tB\nMultiplication\tC\nDivision\tD\nSquare root\tE\nTotal\t\tF\nClear memory\tG\nExit\t\tH");
             Console.Write ("Insert a value: ");
             string input = Console.ReadLine ();
             Console.Write ("Choose a option: ");
             string operation = Console.ReadLine ();
             if (double.TryParse (input, out double number1)) {
-                while (operation != "F") {
+                while (operation != "H") {
                     if (operation == "E") {
-                        total = oper.Sqrt (number1);
-                        number1 = total;
-                    } else {
+                        memory = oper.Sqrt (number1);
+                        number1 = memory;
+                    } else if (operation == "G"){
+                        number1 = 0;
+                        Console.WriteLine ("Cleaned");
+                    } else if (operation != "F"){
                         Console.Write ("Insert other value: ");
-                        input_2 = Console.ReadLine ();                        
+                        input_2 = Console.ReadLine ();
                     }
-                    if (double.TryParse (input_2, out double number2) && operation != "E") {
+                    if (double.TryParse (input_2, out double number2) && operation != "G") {
                         if (operation == "A") {
-                            total = oper.Addition (number1, number2);
-                            number1 = total;
+                            memory = oper.Addition (number1, number2);
+                            number1 = memory;
                         } else if (operation == "B") {
-                            total = oper.Substraction (number1, number2);
-                            number1 = total;
+                            memory = oper.Substraction (number1, number2);
+                            number1 = memory;
                         } else if (operation == "C") {
-                            total = oper.Multiplication (number1, number2);
-                            number1 = total;
+                            memory = oper.Multiplication (number1, number2);
+                            number1 = memory;
                         } else if (operation == "D") {
-                            total = oper.Division (number1, number2);
-                            number1 = total;
+                            memory = oper.Division (number1, number2);
+                            number1 = memory;
                         }
                     } else {
-                        if (operation != "E") {
+                            if (operation != "F" && !(operation=="G")) {
                             Console.WriteLine ("ERROR: You can't insert a string");
                             Environment.Exit (0);
                         }
                     }
+                    if (operation == "F") {
+                        Console.WriteLine ("Total: " + number1);
+                    } else if (operation!="G"){
+                        Console.WriteLine ("Current total: " + memory);
+                    }
                     Console.Write ("Choose a option: ");
                     operation = Console.ReadLine ();
-
                 }
-                Console.WriteLine ("Total: " + number1);
             } else {
                 Console.WriteLine ("ERROR: You can't insert a string");
             }

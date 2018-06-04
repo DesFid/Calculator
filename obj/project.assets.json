@@ -687,11 +687,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/desf/Documents/DotNet/Calculator/Calculator.csproj",
+      "projectUniqueName": "/home/desf/Desktop/Calculator-master/Calculator.csproj",
       "projectName": "Calculator",
-      "projectPath": "/home/desf/Documents/DotNet/Calculator/Calculator.csproj",
+      "projectPath": "/home/desf/Desktop/Calculator-master/Calculator.csproj",
       "packagesPath": "/home/desf/.nuget/packages/",
-      "outputPath": "/home/desf/Documents/DotNet/Calculator/obj/",
+      "outputPath": "/home/desf/Desktop/Calculator-master/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/usr/share/dotnet/sdk/NuGetFallbackFolder"
